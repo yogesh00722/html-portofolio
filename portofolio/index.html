@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yogesh T | Data Analyst & Dashboard Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --grape: #6F2DA8;
+            --eggplant: #614051;
+            --sand: #F4DECB;
+            --steel: #B8B8B8;
+            --charcoal: #333333;
+            --glow-purple: rgba(191, 64, 191, 0.7);
+            --text-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--charcoal);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Header with Background Image */
+        header {
+            background: linear-gradient(rgba(47, 47, 47, 0.8), rgba(0, 0, 0, 0.8)), 
+                        url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--sand);
+            box-shadow: 0 0 30px var(--glow-purple);
+            margin: 0 auto 1.5rem;
+            transition: all 0.5s;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05) rotate(5deg);
+            box-shadow: 0 0 50px var(--glow-purple);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(to right, var(--sand), var(--steel));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 15px var(--glow-purple);
+            animation: glow 2s infinite alternate;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--steel);
+            font-weight: 300;
+        }
+
+        .quote {
+            font-style: italic;
+            max-width: 700px;
+            margin: 2rem auto;
+            padding: 1.5rem;
+            border-left: 4px solid var(--grape);
+            background: rgba(0, 0, 0, 0.4);
+            position: relative;
+            font-size: 1.2rem;
+            border-radius: 0 10px 10px 0;
+            transition: all 0.5s;
+        }
+
+        .quote:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(111, 45, 168, 0.5);
+        }
+
+        .quote::after {
+            content: '"';
+            font-size: 4rem;
+            position: absolute;
+            opacity: 0.1;
+            right: 30px;
+            bottom: -30px;
+            font-family: serif;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .contact-item:hover {
+            color: var(--grape);
+            transform: translateY(-3px);
+        }
+
+        /* Navigation */
+        nav {
+            background-color: rgba(33, 33, 33, 0.9);
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        nav a {
+            color: var(--sand);
+            text-decoration: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.4s;
+            font-weight: 500;
+            border: 1px solid transparent;
+        }
+
+        nav a:hover, nav a.active {
+            background-color: var(--grape);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(111, 45, 168, 0.4);
+            border-color: var(--sand);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--grape);
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 4px;
+            background: linear-gradient(to right, transparent, var(--grape), transparent);
+            bottom: -10px;
+            left: 15%;
+            box-shadow: 0 0 15px var(--glow-purple);
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2.5rem;
+            transition: all 0.4s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: var(--grape);
+            background: rgba(111, 45, 168, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--grape);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2);
+            color: var(--sand);
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s;
+            border-left: 5px solid var(--grape);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(111, 45, 168, 0.3);
+        }
+
+        /* Skills Grid */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, var(--grape), var(--eggplant));
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px var(--glow-purple);
+        }
+
+        /* Dashboard Request Form */
+        .dashboard-form input,
+        .dashboard-form select,
+        .dashboard-form textarea {
+            transition: all 0.3s;
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 5px;
+            border: 1px solid var(--steel);
+            background: rgba(255,255,255,0.1);
+            color: rgb(8, 0, 13);
+            margin-bottom: 1.5rem;
+        }
+
+        .dashboard-form input:focus,
+        .dashboard-form select:focus,
+        .dashboard-form textarea:focus {
+            outline: none;
+            border-color: var(--grape);
+            box-shadow: 0 0 10px rgba(111, 45, 168, 0.5);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .dashboard-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .dashboard-form button[type="submit"] {
+            background: var(--grape);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            width: 100%;
+        }
+
+        .dashboard-form button[type="submit"]:hover {
+            background: var(--eggplant);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(111, 45, 168, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(to right, var(--charcoal), var(--grape));
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+            position: relative;
+        }
+
+        .social-links {
+            margin: 2rem 0;
+        }
+
+        .social-links a {
+            color: rgb(167, 109, 244);
+            font-size: 1.8rem;
+            margin: 0 1rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--sand);
+            transform: translateY(-5px);
+        }
+
+        /* Animations */
+        @keyframes glow {
+            from { text-shadow: 0 0 10px var(--glow-purple); }
+            to { text-shadow: 0 0 20px var(--glow-purple), 0 0 30px var(--glow-purple); }
+        }
+
+        .floating {
+            animation: floating 4s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .pulse {
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Form Success Message */
+        .form-success {
+            display: none;
+            background: rgba(111, 45, 168, 0.2);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 2rem;
+            border: 1px solid var(--grape);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.2rem; }
+            .quote { font-size: 1rem; padding: 1rem; }
+            nav ul { flex-direction: column; gap: 0.5rem; }
+            nav a { padding: 0.5rem 1rem; }
+            .section-title { font-size: 2rem; }
+            .service-card, .project-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="image2.jpg" alt="Yogesh T" class="profile-image floating">
+            <h1>YOGESH T</h1>
+            <p class="tagline">Transforming Data into Actionable Insights</p>
+            <div class="quote pulse">
+                "Data is the new oil, but insights are the refined fuel that drives decisions. I turn raw numbers into strategic dashboards that empower businesses."
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> t.yogess0104@gmail.com
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i> +91 6374441298
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about" class="active">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#dashboard-request">Request Dashboard</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="fade-in">
+        <h2 class="section-title">About Me</h2>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <p style="margin-bottom: 1.5rem;">
+                I'm a passionate Data Analyst and Dashboard Specialist with expertise in Python, SQL, and data visualization tools. 
+                My mission is to transform complex datasets into clear, actionable insights through interactive dashboards and reports.
+            </p>
+            <p>
+                With a strong foundation in AI and machine learning, I go beyond traditional analysis to uncover hidden patterns and predictive trends. 
+                Whether you need business intelligence dashboards, automated reports, or data-driven decision support, I deliver solutions that make an impact.
+            </p>
+        </div>
+    </section>
+
+    <section id="services" class="fade-in">
+        <h2 class="section-title">My Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Data Analysis</h3>
+                <p>Comprehensive data exploration, cleaning, and statistical analysis to uncover meaningful insights from your datasets.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>Interactive Dashboards</h3>
+                <p>Custom-built dashboards (Power BI, Tableau, Python) for real-time business monitoring and decision-making.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+                <h3>Database Management</h3>
+                <p>SQL database design, optimization, and ETL processes to ensure data integrity and accessibility.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Predictive Analytics</h3>
+                <p>Machine learning models to forecast trends, customer behavior, and business outcomes.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-file-excel"></i>
+                </div>
+                <h3>Automated Reporting</h3>
+                <p>Python scripts and tools to automate repetitive reporting tasks, saving you hours of manual work.</p>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h3>Data Pipeline Design</h3>
+                <p>End-to-end data collection, processing, and visualization workflows tailored to your needs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="fade-in">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-item">Python (Pandas, NumPy)</div>
+            <div class="skill-item">SQL</div>
+            <div class="skill-item">Power BI</div>
+            <div class="skill-item">Tableau</div>
+            <div class="skill-item">Excel (Advanced)</div>
+            <div class="skill-item">AWS</div>
+            <div class="skill-item">Git & GitHub</div>
+            <div class="skill-item">Data Visualization</div>
+            <div class="skill-item">Statistical Analysis</div>
+            <div class="skill-item">Dashboard Design</div>
+        </div>
+    </section>
+
+    <section id="dashboard-request" class="fade-in">
+        <h2 class="section-title">Dashboard Request Form</h2>
+        <p style="text-align: center; margin-bottom: 2rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Fill out this form to get started with your custom dashboard project. I'll contact you within 24 hours to discuss your requirements.
+        </p>
+        
+        <form action="https://formspree.io/f/mdkgjvbk" method="POST" class="dashboard-form" style="max-width: 600px; margin: 0 auto;">
+            <div>
+                <label for="name">Full Name*</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div>
+                <label for="email">Email*</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div>
+                <label for="company">Company/Organization</label>
+                <input type="text" id="company" name="company">
+            </div>
+            
+            <div>
+                <label for="project-type">Project Type*</label>
+                <select id="project-type" name="project-type" required>
+                    <option value="">Select an option</option>
+                    <option value="Business Dashboard">Business Dashboard</option>
+                    <option value="Sales Analysis">Sales Analysis</option>
+                    <option value="Financial Reporting">Financial Reporting</option>
+                    <option value="Marketing Analytics">Marketing Analytics</option>
+                    <option value="Custom Data Pipeline">Custom Data Pipeline</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            
+            <div>
+                <label for="data-sources">Data Sources (e.g., Excel, SQL Database, APIs)</label>
+                <input type="text" id="data-sources" name="data-sources">
+            </div>
+            
+            <div>
+                <label for="requirements">Specific Requirements*</label>
+                <textarea id="requirements" name="requirements" rows="5" required></textarea>
+            </div>
+            
+            <div>
+                <label for="timeline">Project Timeline</label>
+                <select id="timeline" name="timeline">
+                    <option value="">Select an option</option>
+                    <option value="ASAP">ASAP</option>
+                    <option value="1-2 weeks">1-2 weeks</option>
+                    <option value="1 month">1 month</option>
+                    <option value="2-3 months">2-3 months</option>
+                    <option value="No specific deadline">No specific deadline</option>
+                </select>
+            </div>
+            
+            <button type="submit">Submit Request</button>
+        </form>
+        
+        <div id="form-success" class="form-success">
+            <h3>Thank you for your request!</h3>
+            <p>I've received your dashboard project details and will contact you within 24 hours to discuss next steps.</p>
+            <i class="fas fa-check-circle" style="font-size: 3rem; color: var(--grape); margin-top: 1rem;"></i>
+        </div>
+    </section>
+
+    <section id="contact" class="fade-in">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="text-align: center; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto;">
+            Ready to unlock the power of your data? Let's discuss how I can help you make data-driven decisions with clarity and confidence.
+        </p>
+        <div style="text-align: center;">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> t.yogess0104@gmail.com
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i> +91 6374441298
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Yogesh T. All rights reserved.</p>
+        <p>Data Analyst & Dashboard Specialist</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active class
+                document.querySelectorAll('nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        // Animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const appearOnScroll = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            appearOnScroll.observe(element);
+        });
+
+        // Update active nav link on scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Form submission handling
+        const form = document.querySelector('.dashboard-form');
+        const formSuccess = document.getElementById('form-success');
+        
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const formData = new FormData(form);
+                
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    });
+                    
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                        form.reset();
+                    } else {
+                        throw new Error('Form submission failed');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('There was a problem submitting your form. Please try again or contact me directly.');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
